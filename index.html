@@ -1,42 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifikasi Sertifikat</title>
+    <title>Verifikasi Sertifikat - Sistem Keamanan Tingkat Tinggi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes checkmark {
+        @keyframes fadeInUp {
             0% {
-                transform: scale(0) rotate(0deg);
                 opacity: 0;
-            }
-            25% {
-                transform: scale(1.8) rotate(90deg);
-                opacity: 0.7;
-            }
-            50% {
-                transform: scale(0.8) rotate(180deg);
-                opacity: 0.9;
-            }
-            75% {
-                transform: scale(1.5) rotate(270deg);
-                opacity: 1;
+                transform: translateY(30px);
             }
             100% {
-                transform: scale(1) rotate(360deg);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
         
-        @keyframes slideUp {
+        @keyframes slideInLeft {
             0% {
-                transform: translateY(30px);
                 opacity: 0;
+                transform: translateX(-50px);
             }
             100% {
-                transform: translateY(0);
                 opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
         
@@ -46,7 +46,7 @@
                 box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
             }
             50% {
-                transform: scale(1.15);
+                transform: scale(1.05);
                 box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
             }
             100% {
@@ -76,12 +76,16 @@
             }
         }
         
-        .checkmark {
-            animation: checkmark 1.5s ease-in-out 0.5s both;
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out both;
         }
         
-        .slide-up {
-            animation: slideUp 0.8s ease-out both;
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out both;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out both;
         }
         
         .pulse-animation {
@@ -95,126 +99,276 @@
         .card-shadow {
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
-<body class="min-h-screen gradient-bg flex items-center justify-center p-4">
-    <div class="max-w-md w-full">
-        <!-- Card Container -->
-        <div class="bg-white rounded-3xl card-shadow p-8 text-center slide-up">
-            <!-- Checkmark Icon -->
-            <div class="mb-6 flex justify-center">
-                <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center checkmark pulse-animation border-4 border-white">
-                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
-                    </svg>
+<body class="min-h-screen gradient-bg">
+    <!-- Hero Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <!-- Main Hero Content -->
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8 flex justify-center fade-in-up">
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center pulse-animation border-4 border-white">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Main Heading -->
-            <h1 class="text-3xl font-bold text-gray-800 mb-4 slide-up" style="animation-delay: 0.2s;">
-                Sertifikat Ini Terverifikasi!
-            </h1>
-            
-            <!-- Kegiatan yang diikuti -->
-            <div class="bg-blue-50 rounded-xl p-4 mb-6 slide-up" style="animation-delay: 0.3s;">
-                <h2 class="text-lg font-semibold text-blue-800 mb-2">Kegiatan yang Diikuti:</h2>
-                <p class="text-blue-700 font-medium">Diklat Nasional 32 JP dengan Tema "Deep Learning untuk Anak Sekolah"</p>
-            </div>
-
-            <!-- Nomor Sertifikat -->
-            <div class="bg-green-50 rounded-xl p-4 mb-6 slide-up" style="animation-delay: 0.35s;">
-                <h2 class="text-lg font-semibold text-green-800 mb-2">Nomor Sertifikat:</h2>
-                <p class="text-green-700 font-mono text-base font-bold tracking-wide">371/KGT/02/GURU JUARA/II/2025</p>
-            </div>
-            
-            <!-- Subtext -->
-            <p class="text-gray-600 mb-8 slide-up" style="animation-delay: 0.4s;">
-                Dokumen yang Anda ajukan telah berhasil diverifikasi dan memenuhi semua persyaratan yang diperlukan.
-            </p>
-            
-            <!-- Action Buttons -->
-            <div class="space-y-3 slide-up" style="animation-delay: 0.6s;">
-                <button class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
-                    Unduh Sertifikat
-                </button>
-                <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-all duration-200 transform hover:scale-105">
-                    Lihat Detail
-                </button>
-            </div>
-            
-            <!-- Footer Info -->
-            <div class="mt-8 pt-6 border-t border-gray-100 slide-up" style="animation-delay: 0.8s;">
-                <p class="text-sm text-gray-500">
-                    Verifikasi dilakukan pada: <span class="font-medium" id="verification-date"></span>
-                </p>
-                <p class="text-xs text-gray-400 mt-2">
-                    ID Verifikasi: <span id="verification-id"></span>
-                </p>
-            </div>
-        </div>
-        
-        <!-- Additional Info Card -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mt-6 text-center slide-up" style="animation-delay: 1s;">
-            <div class="flex items-center justify-center space-x-2 text-white">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span class="font-medium">Sistem Keamanan Tingkat Tinggi</span>
-            </div>
-            <p class="text-white/80 text-sm mt-2">
-                Semua verifikasi dilakukan dengan enkripsi end-to-end
-            </p>
-        </div>
-        
-        <!-- Footer -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mt-6 slide-up" style="animation-delay: 1.2s;">
-            <div class="text-center text-white/90 text-sm">
-                <p class="mb-3">
-                    Website Verifikasi Sertifikat ini bekerja sama dengan 
-                    <span class="font-semibold text-white">HTML.cafe</span> 
-                    sebagai penyedia server dan data hosting.
+                
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 fade-in-up" style="animation-delay: 0.2s;">
+                    Verifikasi Sertifikat
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-white/90 mb-8 fade-in-up" style="animation-delay: 0.3s;">
+                    Sistem Keamanan Tingkat Tinggi untuk Verifikasi Dokumen Anda
                 </p>
                 
-                <div class="border-t border-white/20 pt-4">
-                    <p class="text-white/70 text-xs mb-3">
-                        © 2025 Website Verifikasi Sertifikat. All rights reserved.
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 fade-in-up" style="animation-delay: 0.4s;">
+                    <p class="text-white/80 text-lg leading-relaxed">
+                        Platform terpercaya untuk memverifikasi keaslian sertifikat dan dokumen penting Anda. 
+                        Dengan enkripsi end-to-end dan teknologi blockchain, kami menjamin keamanan dan integritas data Anda.
                     </p>
-                    
-                    <div class="flex justify-center space-x-4 text-xs">
-                        <a href="#" class="text-white/60 hover:text-white transition-colors duration-200">
-                            Privacy Policy
-                        </a>
-                        <span class="text-white/40">|</span>
-                        <a href="#" class="text-white/60 hover:text-white transition-colors duration-200">
-                            Terms & Conditions
-                        </a>
-                        <span class="text-white/40">|</span>
-                        <a href="#" class="text-white/60 hover:text-white transition-colors duration-200">
-                            DMCA
-                        </a>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.5s;">
+                    <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg text-lg">
+                        Mulai Verifikasi
+                    </button>
+                    <button class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 border border-white/30">
+                        Pelajari Lebih Lanjut
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 fade-in-up">
+                    Fitur & Keunggulan
+                </h2>
+                <p class="text-white/80 text-lg fade-in-up" style="animation-delay: 0.1s;">
+                    Mengapa memilih platform verifikasi sertifikat kami?
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-3xl p-8 feature-card card-shadow fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Keamanan Tingkat Tinggi</h3>
+                    <p class="text-gray-600">Enkripsi end-to-end dan sistem blockchain untuk melindungi data sertifikat Anda dari pemalsuan.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-3xl p-8 feature-card card-shadow fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Verifikasi Instan</h3>
+                    <p class="text-gray-600">Proses verifikasi yang cepat dan akurat dalam hitungan detik, tanpa perlu menunggu lama.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-3xl p-8 feature-card card-shadow fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Akurasi 99.9%</h3>
+                    <p class="text-gray-600">Tingkat akurasi verifikasi yang sangat tinggi dengan teknologi AI dan machine learning terdepan.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-3xl p-8 feature-card card-shadow fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">24/7 Availability</h3>
+                    <p class="text-gray-600">Layanan tersedia 24 jam sehari, 7 hari seminggu untuk memenuhi kebutuhan verifikasi Anda.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-3xl p-8 feature-card card-shadow fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Laporan Terperinci</h3>
+                    <p class="text-gray-600">Mendapatkan laporan verifikasi lengkap dengan detail status dan riwayat sertifikat Anda.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-3xl p-8 feature-card card-shadow fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Multi-Platform</h3>
+                    <p class="text-gray-600">Dapat diakses dari berbagai perangkat dan platform untuk kemudahan penggunaan kapan saja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4 fade-in-up">
+                    Testimoni Pengguna
+                </h2>
+                <p class="text-white/80 text-lg fade-in-up" style="animation-delay: 0.1s;">
+                    Apa kata mereka tentang layanan kami?
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 testimonial-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">DR</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Dr. Rina Sari</h4>
+                            <p class="text-white/70 text-sm">Dosen Universitas Indonesia</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 leading-relaxed">
+                        "Sistem verifikasi yang sangat mudah dan cepat. Dalam hitungan detik, sertifikat pelatihan saya sudah terverifikasi. Sangat membantu untuk keperluan administrasi."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <span>★★★★★</span>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 testimonial-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">BW</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Budi Wijaya</h4>
+                            <p class="text-white/70 text-sm">IT Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 leading-relaxed">
+                        "Keamanan data yang terjamin dengan enkripsi tingkat tinggi. Saya merasa tenang menggunakan platform ini untuk verifikasi sertifikat tim saya."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <span>★★★★★</span>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 testimonial-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">SA</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold">Siti Aminah</h4>
+                            <p class="text-white/70 text-sm">HRD Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 leading-relaxed">
+                        "Platform yang sangat profesional dan user-friendly. Proses verifikasi yang transparan dan laporan yang detail memudahkan pekerjaan saya."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <span>★★★★★</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <script>
-        // Set tanggal verifikasi ke tanggal hari ini
-        const today = new Date();
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            timeZone: 'Asia/Jakarta'
-        };
-        const formattedDate = today.toLocaleDateString('id-ID', options);
-        document.getElementById('verification-date').textContent = formattedDate;
-        
-        // Generate ID verifikasi random
-        const currentYear = today.getFullYear();
-        const randomNumber = Math.floor(Math.random() * 900) + 100; // 3 digit random number (100-999)
-        const verificationId = `#VER-${currentYear}-${randomNumber}`;
-        document.getElementById('verification-id').textContent = verificationId;
-    </script>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-12 fade-in-up">
+                <h2 class="text-4xl font-bold text-white mb-6">
+                    Siap Memulai Verifikasi?
+                </h2>
+                <p class="text-white/80 text-lg mb-8">
+                    Bergabunglah dengan ribuan pengguna yang telah mempercayai platform kami untuk verifikasi sertifikat mereka.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg text-lg">
+                        Mulai Verifikasi Sekarang
+                    </button>
+                    <button class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 border border-white/30">
+                        Hubungi Tim Kami
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 fade-in-up">
+                <div class="text-center text-white/90 text-sm">
+                    <p class="mb-3">
+                        Website Verifikasi Sertifikat ini bekerja sama dengan 
+                        <span class="font-semibold text-white">GITHUB</span> 
+                        sebagai penyedia server dan data hosting.
+                    </p>
+                    
+                    <div class="border-t border-white/20 pt-4">
+                        <p class="text-white/70 text-xs mb-3">
+                            © 2025 Website Verifikasi Sertifikat. All rights reserved.
+                        </p>
+                        
+                        <div class="flex justify-center space-x-4 text-xs">
+                            <a href="#" class="text-white/60 hover:text-white transition-colors duration-200">
+                                Privacy Policy
+                            </a>
+                            <span class="text-white/40">|</span>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors duration-200">
+                                Terms & Conditions
+                            </a>
+                            <span class="text-white/40">|</span>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors duration-200">
+                                DMCA
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
